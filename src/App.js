@@ -1,10 +1,10 @@
 import "./App.css";
-import Btns from "./Btns";
+import TodoCard from "./TodoCard";
 
 function App() {
     return (
         <div className="App">
-            <Btns />
+            <TodoCard />
         </div>
     );
 }
