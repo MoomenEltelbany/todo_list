@@ -8,6 +8,7 @@ export default function TodoCard() {
             <h1 style={{ borderBottom: "1px solid black" }}>TODO LIST</h1>
             <Todo />
             <Todo />
+            <Todo />
         </Card>
     );
 }

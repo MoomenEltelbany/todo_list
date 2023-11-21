@@ -1,3 +1,7 @@
+import CheckedBtn from "./Buttons/CheckedBtn";
+import EditBtn from "./Buttons/EditBtn";
+import DeleteBtn from "./Buttons/DeleteBtn";
+
 export default function Todo() {
     return (
         <div
@@ -7,7 +11,7 @@ export default function Todo() {
                 alignItems: "center",
                 backgroundColor: "#2A3592",
                 borderRadius: "10px",
-                marginBottom: "10px",
+                marginBottom: "20px",
                 padding: "10px",
             }}
         >
@@ -15,9 +19,9 @@ export default function Todo() {
                 Finish React Course
             </p>
             <div>
-                <button style={{ marginLeft: "10px" }}>Add</button>
-                <button style={{ marginLeft: "10px" }}>Add</button>
-                <button style={{ marginLeft: "10px" }}>Add</button>
+                <CheckedBtn />
+                <EditBtn />
+                <DeleteBtn />
             </div>
         </div>
     );
