@@ -2,7 +2,7 @@ import CheckedBtn from "./Buttons/CheckedBtn";
 import EditBtn from "./Buttons/EditBtn";
 import DeleteBtn from "./Buttons/DeleteBtn";
 
-export default function Todo() {
+export default function Todo({ id, title, done }) {
     return (
         <div
             style={{
@@ -15,9 +15,7 @@ export default function Todo() {
                 padding: "10px",
             }}
         >
-            <p style={{ color: "white", fontSize: "20px" }}>
-                Finish React Course
-            </p>
+            <p style={{ color: "white", fontSize: "20px" }}>{title}</p>
             <div>
                 <CheckedBtn />
                 <EditBtn />
