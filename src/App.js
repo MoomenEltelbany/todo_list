@@ -1,4 +1,5 @@
 import "./App.css";
+import React from "react";
 import TodoCard from "./TodoCard";
 import Container from "@mui/material/Container";
 import { TodosContext } from "./contexts/TodosContexts";
@@ -23,6 +24,7 @@ const todosList = [
 ];
 
 function App() {
+    const [todos, setTodos] = React.useState(todosList);
     return (
         <div
             className="App"
@@ -35,7 +37,7 @@ function App() {
             }}
         >
             <Container maxWidth="sm">
-                <TodosContext.Provider value={todosList}>
+                <TodosContext.Provider value={{ todos, setTodos }}>
                     <TodoCard />
                 </TodosContext.Provider>
             </Container>

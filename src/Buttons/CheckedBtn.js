@@ -13,6 +13,9 @@ export default function CheckedBtn() {
                 marginLeft: "10px",
                 cursor: "pointer",
             }}
+            onClick={() => {
+                alert("Checked");
+            }}
         />
     );
 }

@@ -14,9 +14,8 @@ import Button from "@mui/material/Button";
 import { v4 as uniqueID } from "uuid";
 
 export default function TodoCard() {
-    const { todosList } = useContext(TodosContext);
+    const { todos, setTodos } = useContext(TodosContext);
 
-    const [todos, setTodos] = React.useState(todosList);
     const [submit, setSubmit] = React.useState("");
 
     const todo = todos.map((todo) => {
