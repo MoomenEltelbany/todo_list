@@ -1,6 +1,8 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+import { useContext } from "react";
+import { TodosContext } from "./contexts/TodosContexts";
 
 // Importing Buttons components from Buttons folder
 import Card from "@mui/material/Card";
@@ -12,23 +14,7 @@ import Button from "@mui/material/Button";
 import { v4 as uniqueID } from "uuid";
 
 export default function TodoCard() {
-    const todosList = [
-        {
-            id: uniqueID(),
-            title: "Finish React Course",
-            done: false,
-        },
-        {
-            id: uniqueID(),
-            title: "Finish NextJS Course",
-            done: false,
-        },
-        {
-            id: uniqueID(),
-            title: "Finish NodeJS Course",
-            done: false,
-        },
-    ];
+    const { todosList } = useContext(TodosContext);
 
     const [todos, setTodos] = React.useState(todosList);
     const [submit, setSubmit] = React.useState("");
