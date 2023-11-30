@@ -17,7 +17,7 @@ export default function Todo({ id, title, done }) {
         >
             <p style={{ color: "white", fontSize: "20px" }}>{title}</p>
             <div>
-                <CheckedBtn />
+                <CheckedBtn id={id} />
                 <EditBtn />
                 <DeleteBtn />
             </div>

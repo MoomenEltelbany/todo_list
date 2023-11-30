@@ -1,0 +1,9 @@
+.checked {
+    color: "green" !important;
+    border-radius: "50%";
+    height: "20px";
+    width: "20px";
+    padding: "5px";
+    margin-left: "10px";
+    cursor: "pointer";
+}
