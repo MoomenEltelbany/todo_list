@@ -11,8 +11,11 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useContext, useState } from "react";
 import { TodosContext } from "../contexts/TodosContexts";
 
-export default function EditBtn() {
+export default function EditBtn(props) {
     const [open, setOpen] = React.useState(false);
+    const { todos, setTodos } = useContext(TodosContext);
+
+    const title = todos.find((todo) => todo.id === props.id).title;
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -22,41 +25,33 @@ export default function EditBtn() {
         setOpen(false);
     };
 
-    const { todos, setTodos } = useContext(TodosContext);
-
     function handleEditBtnClick() {
-        alert("Edit");
+        alert("Edit Button Clicked");
     }
 
     return (
         <>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                Open form dialog
-            </Button>
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+                <DialogTitle>Edit Post</DialogTitle>
                 <DialogContent>
-                    <DialogContentText>
-                        To subscribe to this website, please enter your email
-                        address here. We will send updates occasionally.
-                    </DialogContentText>
+                    <DialogContentText>{title}</DialogContentText>
                     <TextField
                         autoFocus
                         margin="dense"
                         id="name"
-                        label="Email Address"
-                        type="email"
+                        label="Post Edit"
+                        type="text"
                         fullWidth
                         variant="standard"
                     />
                 </DialogContent>
                 <DialogActions>
+                    <Button onClick={handleEditBtnClick}>Edit</Button>
                     <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleClose}>Subscribe</Button>
                 </DialogActions>
             </Dialog>
             <EditIcon
-                onClick={handleEditBtnClick}
+                onClick={handleClickOpen}
                 style={{
                     color: "blue",
                     backgroundColor: "white",
