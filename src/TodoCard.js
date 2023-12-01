@@ -46,7 +46,7 @@ export default function TodoCard() {
                 <Grid item xs={8}>
                     <TextField
                         id="outlined-basic"
-                        label="Outlined"
+                        label="Task"
                         variant="outlined"
                         style={{ width: "100%" }}
                         value={submit}
