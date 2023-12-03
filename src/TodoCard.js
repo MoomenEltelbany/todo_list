@@ -39,13 +39,6 @@ export default function TodoCard() {
         localStorage.setItem("todos", JSON.stringify(updatedTodos));
         setSubmit("");
     }
-
-    // useEffect(() => {
-    //     const sortedTodos = localStorage.getItem("todos");
-    //     if (sortedTodos) {
-    //         setTodos(JSON.parse(sortedTodos));
-    //     }
-    // });
     return (
         <Card sx={{ minWidth: 275 }} style={{ padding: "20px" }}>
             <h1 style={{ borderBottom: "1px solid black" }}>TODO LIST</h1>

@@ -1,17 +1,26 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
-import ButtonGroup from "@mui/material/ButtonGroup";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
 export default function AllBtns() {
+    const [alignment, setAlignment] = React.useState("all");
+
+    const handleChange = (event) => {
+        setAlignment(event.target.value);
+    };
+
     return (
-        <ButtonGroup
-            variant="contained"
-            aria-label=""
+        <ToggleButtonGroup
+            color="primary"
+            value={alignment}
+            exclusive
+            onChange={handleChange}
+            aria-label="Platform"
             style={{ marginBottom: "20px" }}
         >
-            <Button>All</Button>
-            <Button>Done</Button>
-            <Button>Not-Done</Button>
-        </ButtonGroup>
+            <ToggleButton value="all">All</ToggleButton>
+            <ToggleButton value="done">Done</ToggleButton>
+            <ToggleButton value="not-done">Not-Done</ToggleButton>
+        </ToggleButtonGroup>
     );
 }
