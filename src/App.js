@@ -25,6 +25,7 @@ const todosList = [
 
 function App() {
     const [todos, setTodos] = React.useState(todosList);
+
     return (
         <div
             className="App"
@@ -36,7 +37,14 @@ function App() {
                 alignItems: "center",
             }}
         >
-            <Container maxWidth="sm">
+            <Container
+                maxWidth="sm"
+                style={{
+                    maxHeight: "80vh",
+                    overflow: "scroll",
+                    scrollBehavior: "smooth",
+                }}
+            >
                 <TodosContext.Provider value={{ todos, setTodos }}>
                     <TodoCard />
                 </TodosContext.Provider>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { TodosContext } from "./contexts/TodosContexts";
 
 // Importing Buttons components from Buttons folder
@@ -14,9 +14,8 @@ import Button from "@mui/material/Button";
 import { v4 as uniqueID } from "uuid";
 
 export default function TodoCard() {
-    const { todos, setTodos } = useContext(TodosContext);
-
     const [submit, setSubmit] = React.useState("");
+    const { todos, setTodos } = useContext(TodosContext);
 
     const todo = todos.map((todo) => {
         return (
@@ -34,7 +33,10 @@ export default function TodoCard() {
     };
 
     function handleSubmitClick() {
-        setTodos([...todos, { id: uniqueID(), title: submit, done: false }]);
+        const newTodo = { id: uniqueID(), title: submit, done: false };
+        const updatedTodos = [...todos, newTodo];
+        setTodos(updatedTodos);
+        localStorage.setItem("todos", JSON.stringify(updatedTodos));
         setSubmit("");
     }
     return (
