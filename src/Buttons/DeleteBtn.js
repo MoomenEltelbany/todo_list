@@ -61,9 +61,7 @@ export default function DeleteBtn(props) {
                     >
                         Yes, I am sure
                     </Button>
-                    <Button onClick={handleClose} autoFocus>
-                        No, I am not
-                    </Button>
+                    <Button onClick={handleClose}>No, I am not</Button>
                 </DialogActions>
             </Dialog>
         </>

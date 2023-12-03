@@ -14,6 +14,7 @@ import { TodosContext } from "../contexts/TodosContexts";
 export default function EditBtn(props) {
     const [open, setOpen] = React.useState(false);
     const { todos, setTodos } = useContext(TodosContext);
+    const [edit, setEdit] = useState("");
 
     const title = todos.find((todo) => todo.id === props.id).title;
 
@@ -26,7 +27,15 @@ export default function EditBtn(props) {
     };
 
     function handleEditBtnClick() {
-        alert("Edit Button Clicked");
+        setTodos(
+            todos.map((todo) => {
+                if (todo.id === props.id) {
+                    return { ...todo, title: edit };
+                }
+                return todo;
+            })
+        );
+        setOpen(false);
     }
 
     return (
@@ -43,6 +52,8 @@ export default function EditBtn(props) {
                         type="text"
                         fullWidth
                         variant="standard"
+                        value={edit}
+                        onChange={(e) => setEdit(e.target.value)}
                     />
                 </DialogContent>
                 <DialogActions>
