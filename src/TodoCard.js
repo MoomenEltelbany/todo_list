@@ -1,7 +1,7 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { TodosContext } from "./contexts/TodosContexts";
 
 // Importing Buttons components from Buttons folder
@@ -39,6 +39,13 @@ export default function TodoCard() {
         localStorage.setItem("todos", JSON.stringify(updatedTodos));
         setSubmit("");
     }
+
+    // useEffect(() => {
+    //     const sortedTodos = localStorage.getItem("todos");
+    //     if (sortedTodos) {
+    //         setTodos(JSON.parse(sortedTodos));
+    //     }
+    // });
     return (
         <Card sx={{ minWidth: 275 }} style={{ padding: "20px" }}>
             <h1 style={{ borderBottom: "1px solid black" }}>TODO LIST</h1>
@@ -60,6 +67,7 @@ export default function TodoCard() {
                         variant="contained"
                         style={{ width: "100%", height: "100%" }}
                         onClick={handleSubmitClick}
+                        disabled={submit.length === 0}
                     >
                         Submit
                     </Button>

@@ -15,7 +15,15 @@ export default function Todo({ id, title, done }) {
                 padding: "10px",
             }}
         >
-            <p style={{ color: "white", fontSize: "20px" }}>{title}</p>
+            <p
+                style={{
+                    color: "white",
+                    fontSize: "20px",
+                    textDecoration: done ? "line-through" : "none",
+                }}
+            >
+                {title}
+            </p>
             <div>
                 <CheckedBtn id={id} />
                 <EditBtn id={id} />

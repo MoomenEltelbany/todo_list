@@ -23,7 +23,9 @@ export default function DeleteBtn(props) {
         setOpen(false);
     };
     const handleCloseConfirmation = () => {
-        setTodos(todos.filter((todo) => todo.id !== props.id));
+        const updatedTodos = todos.filter((todo) => todo.id !== props.id);
+        setTodos(updatedTodos);
+        localStorage.setItem("todos", JSON.stringify(updatedTodos));
         setOpen(false);
     };
 

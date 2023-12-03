@@ -27,14 +27,15 @@ export default function EditBtn(props) {
     };
 
     function handleEditBtnClick() {
-        setTodos(
-            todos.map((todo) => {
-                if (todo.id === props.id) {
-                    return { ...todo, title: edit };
-                }
-                return todo;
-            })
-        );
+        const updatedTodos = todos.map((todo) => {
+            if (todo.id === props.id) {
+                return { ...todo, title: edit };
+            }
+            return todo;
+        });
+        setTodos(updatedTodos);
+        localStorage.setItem("todos", JSON.stringify(updatedTodos));
+
         setOpen(false);
     }
 
