@@ -1,12 +1,17 @@
 import * as React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import { TodosContext } from "../contexts/TodosContexts";
+import { useContext, useState } from "react";
 
 export default function AllBtns() {
+    const { todos, setTodos } = useContext(TodosContext);
+
     const [alignment, setAlignment] = React.useState("all");
 
     const handleChange = (event) => {
-        setAlignment(event.target.value);
+        const value = event.target.value;
+        setAlignment(value);
     };
 
     return (

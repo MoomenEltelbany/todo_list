@@ -5,6 +5,7 @@ import "./CheckedBtn.css";
 
 export default function CheckedBtn(props) {
     const { todos, setTodos } = useContext(TodosContext);
+
     const [done, setDone] = useState(false);
 
     // This useEffect runs when the component mounts
