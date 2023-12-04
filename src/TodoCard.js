@@ -16,8 +16,20 @@ import { v4 as uniqueID } from "uuid";
 export default function TodoCard() {
     const [submit, setSubmit] = useState("");
     const { todos, setTodos } = useContext(TodosContext);
+    const [filter, setFilter] = useState("all");
 
-    const todo = todos.map((todo) => {
+    const filteredTodos = todos.filter((todo) => {
+        switch (filter) {
+            case "done":
+                return todo.done;
+            case "not-done":
+                return !todo.done;
+            default:
+                return true; // "all" - no filtering
+        }
+    });
+
+    const todo = filteredTodos.map((todo) => {
         return (
             <Todo
                 key={todo.id}
@@ -40,10 +52,14 @@ export default function TodoCard() {
         setSubmit("");
     }
 
+    const handleFilterChange = (event, newFilter) => {
+        setFilter(newFilter);
+    };
+
     return (
         <Card sx={{ minWidth: 275 }} style={{ padding: "20px" }}>
             <h1 style={{ borderBottom: "1px solid black" }}>TODO LIST</h1>
-            <AllBtns />
+            <AllBtns filter={filter} onFilterChange={handleFilterChange} />
             {todo}
             <Grid container spacing={2}>
                 <Grid item xs={8}>

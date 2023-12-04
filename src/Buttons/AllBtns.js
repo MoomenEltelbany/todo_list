@@ -1,23 +1,18 @@
-import * as React from "react";
+import React from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import { TodosContext } from "../contexts/TodosContexts";
-import { useContext, useState } from "react";
 
-export default function AllBtns() {
-    const { todos, setTodos } = useContext(TodosContext);
-
-    const [alignment, setAlignment] = React.useState("all");
-
-    const handleChange = (event) => {
-        const value = event.target.value;
-        setAlignment(value);
+export default function AllBtns({ filter, onFilterChange }) {
+    const handleChange = (event, newFilter) => {
+        if (newFilter !== null) {
+            onFilterChange(event, newFilter);
+        }
     };
 
     return (
         <ToggleButtonGroup
             color="primary"
-            value={alignment}
+            value={filter}
             exclusive
             onChange={handleChange}
             aria-label="Platform"
