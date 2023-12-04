@@ -4,7 +4,7 @@ import TodoCard from "./TodoCard";
 import Container from "@mui/material/Container";
 import { TodosContext } from "./contexts/TodosContexts";
 import { v4 as uniqueID } from "uuid";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const todosList = [
     {
@@ -25,7 +25,7 @@ const todosList = [
 ];
 
 function App() {
-    const [todos, setTodos] = React.useState(todosList);
+    const [todos, setTodos] = useState(todosList);
 
     useEffect(() => {
         const sortedTodos = localStorage.getItem("todos");
