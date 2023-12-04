@@ -55,7 +55,6 @@ export default function TodoCard() {
     const handleFilterChange = (event, newFilter) => {
         setFilter(newFilter);
     };
-
     return (
         <Card sx={{ minWidth: 275 }} style={{ padding: "20px" }}>
             <h1 style={{ borderBottom: "1px solid black" }}>TODO LIST</h1>
